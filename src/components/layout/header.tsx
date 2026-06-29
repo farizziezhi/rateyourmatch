@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { getCurrentUser } from '@/features/auth/queries'
 import { signOutAction } from '@/features/auth/actions'
 import { Button } from '@/components/ui/button'
-import { Trophy, LogOut } from 'lucide-react'
+import { LogOut } from 'lucide-react'
 
 export async function Header() {
   const session = await getCurrentUser()
@@ -10,9 +10,14 @@ export async function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md text-zinc-100">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link href="/" className="flex items-center space-x-2">
-          <Trophy className="h-6 w-6 text-emerald-400" />
-          <span className="text-xl font-bold tracking-wider bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+        <Link href="/" className="flex items-center space-x-2.5 group">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo.png"
+            alt="RateYourMatch Logo"
+            className="h-7 w-7 object-contain transition-transform duration-300 group-hover:rotate-12"
+          />
+          <span className="text-lg font-black tracking-wider bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-400 bg-[size:200%_auto] hover:bg-[position:right_center] transition-all duration-500 bg-clip-text text-transparent">
             RATEYOURMATCH
           </span>
         </Link>
