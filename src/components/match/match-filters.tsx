@@ -6,10 +6,11 @@ import { Button } from '@/components/ui/button'
 const STAGES = [
   { label: 'All Stages', value: '' },
   { label: 'Group Stage', value: 'GROUP_STAGE' },
-  { label: 'Round of 32', value: 'ROUND_OF_32' },
-  { label: 'Round of 16', value: 'ROUND_OF_16' },
+  { label: 'Round of 32', value: 'LAST_32' },
+  { label: 'Round of 16', value: 'LAST_16' },
   { label: 'Quarter-Finals', value: 'QUARTER_FINALS' },
   { label: 'Semi-Finals', value: 'SEMI_FINALS' },
+  { label: 'Third Place', value: 'THIRD_PLACE' },
   { label: 'Final', value: 'FINAL' },
 ]
 

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { format } from 'date-fns'
 import { Card, CardContent } from '@/components/ui/card'
 import { Star } from 'lucide-react'
+import { formatStageName } from '@/lib/utils'
 
 interface Team {
   name: string
@@ -40,7 +41,7 @@ export function MatchCard({ match }: MatchCardProps) {
   }
 
   const formatStage = (stage: string) => {
-    return stage.replace('_', ' ')
+    return formatStageName(stage)
   }
 
   return (

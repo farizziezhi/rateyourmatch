@@ -4,6 +4,7 @@ import { Star, MessageSquare, Clock, Globe } from 'lucide-react'
 import { formatDistanceToNow } from 'date-fns'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { formatStageName } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Community Activity Feed | Rate Your Match',
@@ -74,7 +75,7 @@ export default async function FeedPage() {
                       {match?.home_team?.name} vs {match?.away_team?.name}
                     </Link>
                     <span className="text-zinc-500 text-[10px] font-semibold tracking-wider uppercase ml-2 whitespace-nowrap">
-                      {match?.stage.replace('_', ' ')}
+                      {match && formatStageName(match.stage)}
                     </span>
                   </div>
 

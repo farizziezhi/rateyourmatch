@@ -14,6 +14,7 @@ import { format } from 'date-fns'
 import { Star, MapPin, Calendar, Clock } from 'lucide-react'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { formatStageName } from '@/lib/utils'
 
 interface PageProps {
   params: Promise<{ id: string }>
@@ -129,7 +130,7 @@ export default async function MatchDetailPage({ params }: PageProps) {
         {/* Stage and Venue */}
         <div className="flex flex-col items-center space-y-1 text-xs text-zinc-500 z-10">
           <span className="font-bold tracking-wider uppercase text-emerald-400">
-            {match.stage.replace('_', ' ')}
+            {formatStageName(match.stage)}
           </span>
           <div className="flex items-center space-x-3 text-zinc-400 mt-1">
             {match.venue && (

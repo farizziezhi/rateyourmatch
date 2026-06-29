@@ -5,6 +5,7 @@ import { Star, Trophy, Award, Calendar } from 'lucide-react'
 import { format } from 'date-fns'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { formatStageName } from '@/lib/utils'
 
 interface PageProps {
   params: Promise<{ username: string }>
@@ -118,7 +119,7 @@ export default async function ProfilePage({ params }: PageProps) {
                   <CardContent className="p-4 flex items-center justify-between gap-4">
                     <div className="flex-1 space-y-1.5 min-w-0">
                       <div className="flex items-center space-x-2 text-[10px] text-zinc-500">
-                        <span>{match.stage.replace('_', ' ')}</span>
+                        <span>{formatStageName(match.stage)}</span>
                         <span>•</span>
                         <span>{format(date, 'MMM dd, yyyy')}</span>
                       </div>
