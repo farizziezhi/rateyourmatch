@@ -40,9 +40,9 @@ export function RatingForm({
   if (!userId) {
     return (
       <div className="flex flex-col items-center justify-center p-6 border border-zinc-800 rounded-xl bg-zinc-950/50 backdrop-blur-sm text-center">
-        <p className="text-sm text-zinc-400 mb-4">You must be signed in to rate World Cup matches.</p>
+        <p className="text-sm text-[#b8b9bc] mb-4">You must be signed in to rate World Cup matches.</p>
         <Link href="/login">
-          <Button className="bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-semibold cursor-pointer">
+          <Button className="bg-[#fefcfb] hover:bg-[#e6e4e3] text-[#161e29] rounded-full font-bold cursor-pointer transition-colors">
             Sign In to Rate
           </Button>
         </Link>
@@ -70,7 +70,7 @@ export function RatingForm({
         )}
 
         {state?.success && (
-          <div className="rounded-md bg-emerald-500/10 p-3 text-sm text-emerald-400 border border-emerald-500/20">
+          <div className="rounded-md bg-[#5f4dbd]/10 p-3 text-sm text-[#9868cc] border border-[#5f4dbd]/20">
             {state.message}
           </div>
         )}

@@ -41,10 +41,10 @@ export function MatchComments({ matchId, comments, userId }: MatchCommentsProps)
   }
 
   return (
-    <div className="space-y-6 bg-zinc-900/30 border border-zinc-800 p-6 rounded-xl backdrop-blur-md">
-      <div className="flex items-center space-x-2 border-b border-zinc-800/80 pb-3">
-        <MessageSquare className="h-5 w-5 text-emerald-400" />
-        <h3 className="text-lg font-bold text-zinc-100">Discussion ({comments.length})</h3>
+    <div className="space-y-6 bg-[#1e1d1d]/30 border border-[#1e1d1d] p-6 rounded-xl backdrop-blur-md">
+      <div className="flex items-center space-x-2 border-b border-[#1e1d1d] pb-3">
+        <MessageSquare className="h-5 w-5 text-[#9868cc]" />
+        <h3 className="text-lg font-bold text-[#fefcfb]">Discussion ({comments.length})</h3>
       </div>
 
       {/* Comments List */}
@@ -58,20 +58,20 @@ export function MatchComments({ matchId, comments, userId }: MatchCommentsProps)
             const date = new Date(comment.created_at)
             
             return (
-              <div key={comment.id} className="flex space-x-3 p-3 rounded-lg bg-zinc-950/40 border border-zinc-900/80 group">
+              <div key={comment.id} className="flex space-x-3 p-3 rounded-lg bg-[#161e29]/40 border border-[#1e1d1d] group">
                 <Link href={`/profiles/${profile?.username || ''}`}>
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-800 text-xs font-bold text-emerald-400 border border-zinc-700/60">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1e1d1d] text-xs font-bold text-[#9868cc] border border-[#1e1d1d]">
                     {profile?.username?.substring(0, 2).toUpperCase() || 'U'}
                   </div>
                 </Link>
                 <div className="flex-1 space-y-1.5 min-w-0">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2 text-xs">
-                      <Link href={`/profiles/${profile?.username || ''}`} className="font-semibold text-zinc-200 hover:text-emerald-400">
+                      <Link href={`/profiles/${profile?.username || ''}`} className="font-semibold text-[#fefcfb] hover:text-[#9868cc]">
                         {profile?.display_name || profile?.username || 'User'}
                       </Link>
-                      <span className="text-zinc-500">•</span>
-                      <span className="text-zinc-500" suppressHydrationWarning>{formatDistanceToNow(date, { addSuffix: true })}</span>
+                      <span className="text-[#b8b9bc]">•</span>
+                      <span className="text-[#b8b9bc]" suppressHydrationWarning>{formatDistanceToNow(date, { addSuffix: true })}</span>
                     </div>
                     {isOwner && (
                       <Button
@@ -79,13 +79,13 @@ export function MatchComments({ matchId, comments, userId }: MatchCommentsProps)
                         size="icon"
                         onClick={() => handleDelete(comment.id)}
                         disabled={isDeleting}
-                        className="h-6 w-6 text-zinc-500 hover:text-red-400 hover:bg-zinc-900 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
+                        className="h-6 w-6 text-[#b8b9bc] hover:text-red-400 hover:bg-[#1e1d1d] opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
                       >
                         <Trash2 className="h-3.5 w-3.5" />
                       </Button>
                     )}
                   </div>
-                  <p className="text-sm text-zinc-300 break-words">{comment.content}</p>
+                  <p className="text-sm text-[#b8b9bc] break-words">{comment.content}</p>
                 </div>
               </div>
             )
@@ -99,14 +99,14 @@ export function MatchComments({ matchId, comments, userId }: MatchCommentsProps)
           <input type="hidden" name="matchId" value={matchId} />
           
           <div className="space-y-1.5">
-            <Label htmlFor="content" className="text-xs text-zinc-400 font-semibold uppercase tracking-wider">Write a comment</Label>
+            <Label htmlFor="content" className="text-xs text-[#b8b9bc] font-semibold uppercase tracking-wider">Write a comment</Label>
             <textarea
               id="content"
               name="content"
               required
               placeholder="What did you think of the match? Add your thoughts..."
               rows={3}
-              className="w-full rounded-md border border-zinc-850 bg-zinc-950/60 p-3 text-sm text-zinc-100 placeholder-zinc-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+              className="w-full rounded-md border border-[#1e1d1d] bg-[#161e29] p-3 text-sm text-[#fefcfb] placeholder-[#b8b9bc] focus:border-[#5f4dbd] focus:outline-none focus:ring-1 focus:ring-[#5f4dbd]"
             />
           </div>
 
@@ -118,7 +118,7 @@ export function MatchComments({ matchId, comments, userId }: MatchCommentsProps)
             <Button
               type="submit"
               disabled={isPending}
-              className="bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-bold px-5 cursor-pointer text-xs"
+              className="bg-[#fefcfb] hover:bg-[#e6e4e3] text-[#161e29] font-bold px-5 cursor-pointer text-xs rounded-full"
             >
               {isPending && <Loader2 className="mr-2 h-3.5 w-3.5 animate-spin" />}
               Post Comment
@@ -126,10 +126,10 @@ export function MatchComments({ matchId, comments, userId }: MatchCommentsProps)
           </div>
         </form>
       ) : (
-        <div className="flex flex-col items-center justify-center p-4 border border-zinc-800 rounded-lg bg-zinc-950/20 text-center text-xs">
-          <p className="text-zinc-500 mb-2">You must be signed in to join the discussion.</p>
+        <div className="flex flex-col items-center justify-center p-4 border border-[#1e1d1d] rounded-lg bg-[#161e29]/20 text-center text-xs">
+          <p className="text-[#b8b9bc] mb-2">You must be signed in to join the discussion.</p>
           <Link href="/login">
-            <Button size="sm" className="bg-emerald-500 text-zinc-950 hover:bg-emerald-600 font-semibold cursor-pointer">
+            <Button size="sm" className="bg-[#fefcfb] text-[#161e29] hover:bg-[#e6e4e3] font-semibold cursor-pointer rounded-full">
               Sign In
             </Button>
           </Link>

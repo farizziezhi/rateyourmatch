@@ -46,21 +46,21 @@ export function ShareButtons({
   const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(`${text} ${shareUrl}`)}`
 
   return (
-    <div className="flex items-center space-x-2 bg-zinc-950/40 border border-zinc-900 px-3 py-1.5 rounded-lg text-xs text-zinc-400">
-      <span className="font-semibold text-zinc-500 uppercase tracking-wider text-[10px] mr-1 flex items-center">
+    <div className="flex items-center space-x-2 bg-[#1e1d1d]/40 border border-[#1e1d1d] px-3 py-1.5 rounded-lg text-xs text-[#b8b9bc]">
+      <span className="font-semibold text-[#b8b9bc] uppercase tracking-wider text-[10px] mr-1 flex items-center">
         <Share2 className="h-3 w-3 mr-1" /> Share:
       </span>
       
       {/* Twitter Share */}
       <a href={twitterUrl} target="_blank" rel="noopener noreferrer">
-        <Button variant="ghost" size="sm" className="h-7 px-2 hover:bg-zinc-900 hover:text-emerald-400 text-xs font-semibold cursor-pointer">
+        <Button variant="ghost" size="sm" className="h-7 px-2 hover:bg-[#1e1d1d] hover:text-[#9868cc] text-xs font-semibold cursor-pointer">
           Twitter
         </Button>
       </a>
 
       {/* WhatsApp Share */}
       <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-        <Button variant="ghost" size="sm" className="h-7 px-2 hover:bg-zinc-900 hover:text-emerald-400 text-xs font-semibold cursor-pointer flex items-center space-x-1">
+        <Button variant="ghost" size="sm" className="h-7 px-2 hover:bg-[#1e1d1d] hover:text-[#9868cc] text-xs font-semibold cursor-pointer flex items-center space-x-1">
           <Send className="h-3 w-3" />
           <span>WhatsApp</span>
         </Button>
@@ -71,12 +71,12 @@ export function ShareButtons({
         variant="ghost"
         size="sm"
         onClick={handleCopy}
-        className="h-7 px-2 hover:bg-zinc-900 hover:text-emerald-400 text-xs font-semibold cursor-pointer flex items-center space-x-1"
+        className="h-7 px-2 hover:bg-[#1e1d1d] hover:text-[#9868cc] text-xs font-semibold cursor-pointer flex items-center space-x-1"
       >
         {copied ? (
           <>
-            <Check className="h-3 w-3 text-emerald-400" />
-            <span className="text-emerald-400">Copied!</span>
+            <Check className="h-3 w-3 text-[#9868cc]" />
+            <span className="text-[#9868cc]">Copied!</span>
           </>
         ) : (
           <>

@@ -117,7 +117,7 @@ export default async function MatchDetailPage({ params }: PageProps) {
     <main className="container mx-auto px-4 py-8 max-w-4xl flex flex-col space-y-8">
       {/* Back button */}
       <div>
-        <Link href="/matches" className="text-xs font-semibold text-emerald-400 hover:underline">
+        <Link href="/matches" className="text-xs font-semibold text-[#9868cc] hover:underline">
           &larr; Back to Matches
         </Link>
       </div>

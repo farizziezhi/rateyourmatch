@@ -17,9 +17,9 @@ export default async function FeedPage() {
   return (
     <main className="container mx-auto px-4 py-8 max-w-2xl flex flex-col space-y-6">
       <div className="flex flex-col space-y-2 border-b border-zinc-900 pb-4">
-        <div className="flex items-center space-x-2 text-emerald-400">
+        <div className="flex items-center space-x-2 text-[#9868cc]">
           <Globe className="h-5 w-5" />
-          <h1 className="text-2xl font-extrabold tracking-tight text-zinc-100">
+          <h1 className="text-2xl font-extrabold tracking-tight text-[#fefcfb]">
             Community Activity
           </h1>
         </div>
@@ -45,7 +45,7 @@ export default async function FeedPage() {
                   {/* Top user action row */}
                   <div className="flex items-center justify-between text-xs">
                     <div className="flex items-center space-x-2 min-w-0">
-                      <Link href={`/profiles/${profile?.username || ''}`} className="font-bold text-zinc-200 hover:text-emerald-400 truncate">
+                      <Link href={`/profiles/${profile?.username || ''}`} className="font-bold text-[#fefcfb] hover:text-[#9868cc] truncate">
                         {profile?.display_name || profile?.username || 'User'}
                       </Link>
                       <span className="text-zinc-700">•</span>
@@ -57,12 +57,12 @@ export default async function FeedPage() {
 
                     {/* Action badge */}
                     {item.type === 'rating' ? (
-                      <span className="flex items-center space-x-1 text-[10px] bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded text-emerald-400 font-semibold">
+                      <span className="flex items-center space-x-1 text-[10px] bg-[#5f4dbd]/10 border border-[#5f4dbd]/20 px-2 py-0.5 rounded text-[#9868cc] font-semibold">
                         <Star className="h-3 w-3 fill-current" />
                         <span>Rated</span>
                       </span>
                     ) : (
-                      <span className="flex items-center space-x-1 text-[10px] bg-teal-500/10 border border-teal-500/20 px-2 py-0.5 rounded text-teal-400 font-semibold">
+                      <span className="flex items-center space-x-1 text-[10px] bg-[#5f4dbd]/10 border border-[#5f4dbd]/20 px-2 py-0.5 rounded text-[#9868cc] font-semibold">
                         <MessageSquare className="h-3 w-3" />
                         <span>Commented</span>
                       </span>
@@ -70,8 +70,8 @@ export default async function FeedPage() {
                   </div>
 
                   {/* Middle match description row */}
-                  <div className="text-xs bg-zinc-950/40 p-2.5 rounded border border-zinc-900 flex items-center justify-between">
-                    <Link href={`/matches/${item.match_id}`} className="font-medium text-zinc-400 hover:text-emerald-400 truncate">
+                  <div className="text-xs bg-[#1e1d1d]/40 p-2.5 rounded border border-[#1e1d1d] flex items-center justify-between">
+                    <Link href={`/matches/${item.match_id}`} className="font-medium text-[#b8b9bc] hover:text-[#9868cc] truncate">
                       {match?.home_team?.name} vs {match?.away_team?.name}
                     </Link>
                     <span className="text-zinc-500 text-[10px] font-semibold tracking-wider uppercase ml-2 whitespace-nowrap">
