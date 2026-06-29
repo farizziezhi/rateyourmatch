@@ -98,7 +98,7 @@ export default async function HomePage() {
               <Calendar className="h-5 w-5 text-emerald-400" />
               <h2 className="text-xl font-bold text-zinc-200">Upcoming Fixtures</h2>
             </div>
-            <Link href="/matches?stage=GROUP_STAGE" className="text-xs font-semibold text-emerald-400 hover:underline">
+            <Link href="/matches" className="text-xs font-semibold text-zinc-400 hover:text-emerald-500 transition-colors">
               See all
             </Link>
           </div>

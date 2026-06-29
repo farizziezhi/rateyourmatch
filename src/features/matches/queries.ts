@@ -164,7 +164,7 @@ export const getUpcomingMatches = cache(async (limit = 3) => {
         away_team:teams!away_team_id(*),
         competition:competitions(*)
       `)
-      .eq('status', 'SCHEDULED')
+      .in('status', ['SCHEDULED', 'TIMED', 'LIVE', 'IN_PLAY'])
       .order('utc_date', { ascending: true })
       .limit(limit)
 
