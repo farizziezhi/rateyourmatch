@@ -17,7 +17,7 @@ export async function Header() {
             alt="RateYourMatch Logo"
             className="h-7 w-7 object-contain transition-transform duration-300 group-hover:rotate-12"
           />
-          <span className="text-lg font-black tracking-wider bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-400 bg-[size:200%_auto] hover:bg-[position:right_center] transition-all duration-500 bg-clip-text text-transparent">
+          <span className="text-base font-extrabold tracking-wider text-zinc-100 group-hover:text-emerald-500 transition-colors">
             RATEYOURMATCH
           </span>
         </Link>

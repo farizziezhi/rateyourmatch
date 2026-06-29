@@ -59,7 +59,7 @@ export function MatchFilters() {
               onClick={() => updateFilters('stage', s.value)}
               className={`text-xs font-semibold cursor-pointer transition-all duration-350 px-3 py-1.5 h-8 ${
                 currentStage === s.value 
-                  ? 'bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-zinc-950 shadow-md shadow-emerald-500/10' 
+                  ? 'bg-emerald-700 hover:bg-emerald-600 text-zinc-100 font-bold' 
                   : 'border-zinc-800 bg-zinc-950/20 text-zinc-400 hover:bg-zinc-900/60 hover:text-zinc-200'
               }`}
             >
