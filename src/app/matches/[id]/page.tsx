@@ -124,8 +124,6 @@ export default async function MatchDetailPage({ params }: PageProps) {
 
       {/* Match Scoreboard Hero */}
       <div className="relative overflow-hidden rounded-2xl glass-panel p-6 md:p-8 flex flex-col items-center justify-center space-y-6 shadow-2xl">
-        {/* Glowing backdrop blur */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-emerald-500/5 blur-[100px] pointer-events-none" />
 
         {/* Stage and Venue */}
         <div className="flex flex-col items-center space-y-1 text-xs text-zinc-500 z-10">

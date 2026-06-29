@@ -113,7 +113,7 @@ export function PredictionForm({
         <Button
           type="submit"
           disabled={isPending || homeScore === '' || awayScore === ''}
-          className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-zinc-950 font-bold transition-all duration-200 cursor-pointer shadow-lg shadow-emerald-500/10"
+          className="w-full bg-emerald-700 hover:bg-emerald-600 text-zinc-100 font-bold transition-all duration-200 cursor-pointer"
         >
           {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
           {hasPredicted ? 'Update Forecast' : 'Submit Forecast'}

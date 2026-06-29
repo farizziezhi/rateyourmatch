@@ -67,7 +67,7 @@ export function PredictionStats({
         <div className="h-4 w-full rounded-full bg-zinc-950 overflow-hidden flex border border-zinc-850 shadow-inner">
           <div
             style={{ width: `${homeWinPct}%` }}
-            className="h-full bg-gradient-to-r from-emerald-600 to-emerald-500 transition-all"
+            className="h-full bg-emerald-700 transition-all"
             title={`${homeTeamName} Win: ${homeWinPct}%`}
           />
           <div
@@ -77,7 +77,7 @@ export function PredictionStats({
           />
           <div
             style={{ width: `${awayWinPct}%` }}
-            className="h-full bg-gradient-to-r from-teal-500 to-sky-500 transition-all"
+            className="h-full bg-sky-700 transition-all"
             title={`${awayTeamName} Win: ${awayWinPct}%`}
           />
         </div>

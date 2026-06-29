@@ -97,7 +97,7 @@ export function RatingForm({
                   <Star
                     className={`h-7 w-7 transition-all ${
                       isFilled
-                        ? 'text-emerald-400 fill-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.35)]'
+                        ? 'text-emerald-500 fill-emerald-500'
                         : 'text-zinc-700'
                     }`}
                   />
@@ -190,7 +190,7 @@ export function RatingForm({
         <Button
           type="submit"
           disabled={isPending || overallScore === 0}
-          className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-zinc-950 font-bold transition-all duration-200 cursor-pointer shadow-lg shadow-emerald-500/10"
+          className="w-full bg-emerald-700 hover:bg-emerald-600 text-zinc-100 font-bold transition-all duration-200 cursor-pointer"
         >
           {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
           Submit Rating
