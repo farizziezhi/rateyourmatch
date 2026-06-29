@@ -55,12 +55,12 @@ export async function Header() {
           ) : (
             <div className="flex items-center space-x-2">
               <Link href="/login">
-                <Button variant="ghost" size="sm" className="text-zinc-300 hover:text-emerald-400 hover:bg-zinc-900">
+                <Button variant="ghost" size="sm" className="text-[#b8b9bc] hover:text-[#fefcfb] hover:bg-[#1e1d1d] rounded-full cursor-pointer">
                   Sign In
                 </Button>
               </Link>
               <Link href="/register">
-                <Button size="sm" className="bg-emerald-500 text-zinc-950 font-semibold hover:bg-emerald-600 cursor-pointer">
+                <Button size="sm" className="rounded-full bg-[#fefcfb] text-[#161e29] hover:bg-[#fefcfb]/90 font-semibold cursor-pointer">
                   Sign Up
                 </Button>
               </Link>

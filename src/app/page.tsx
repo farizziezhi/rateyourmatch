@@ -93,12 +93,12 @@ export default async function HomePage() {
 
         {/* Upcoming Matches */}
         <div className="space-y-6">
-          <div className="flex items-center justify-between border-b border-zinc-900 pb-3">
+          <div className="flex items-center justify-between border-b border-[#1e1d1d] pb-3">
             <div className="flex items-center space-x-2">
-              <Calendar className="h-5 w-5 text-emerald-400" />
+              <Calendar className="h-5 w-5 text-[#9868cc]" />
               <h2 className="text-xl font-bold text-zinc-200">Upcoming Fixtures</h2>
             </div>
-            <Link href="/matches" className="text-xs font-semibold text-zinc-400 hover:text-emerald-500 transition-colors">
+            <Link href="/matches" className="text-xs font-semibold text-[#b8b9bc] hover:text-[#fefcfb] transition-colors">
               See all
             </Link>
           </div>
@@ -109,15 +109,15 @@ export default async function HomePage() {
               ))}
             </div>
           ) : (
-            <p className="text-sm text-zinc-500 py-4 text-center">No upcoming fixtures scheduled.</p>
+            <p className="text-sm text-[#b8b9bc] py-4 text-center">No upcoming fixtures scheduled.</p>
           )}
         </div>
 
         {/* Recent Matches */}
         {recent.length > 0 && (
           <div className="space-y-6">
-            <div className="flex items-center space-x-2 border-b border-zinc-900 pb-3">
-              <Star className="h-5 w-5 text-teal-400" />
+            <div className="flex items-center space-x-2 border-b border-[#1e1d1d] pb-3">
+              <Star className="h-5 w-5 text-[#9868cc]" />
               <h2 className="text-xl font-bold text-zinc-200">Recently Finished</h2>
             </div>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
