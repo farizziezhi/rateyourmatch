@@ -77,8 +77,8 @@ export function RatingForm({
 
         {/* 1-10 Overall Match Quality Star Rating */}
         <div className="space-y-2">
-          <Label className="text-sm font-semibold text-zinc-350">
-            Match Quality: <span className="text-emerald-400 font-extrabold text-base">{overallScore || 'Select'}</span> / 10
+          <Label className="text-sm font-semibold text-[#b8b9bc]">
+            Match Quality: <span className="text-[#9868cc] font-bold text-base">{overallScore || 'Select'}</span> / 10
           </Label>
           <div className="flex items-center space-x-1.5 overflow-x-auto py-1.5">
             {Array.from({ length: 10 }).map((_, idx) => {
@@ -92,13 +92,13 @@ export function RatingForm({
                   onClick={() => setOverallScore(score)}
                   onMouseEnter={() => setHoverScore(score)}
                   onMouseLeave={() => setHoverScore(null)}
-                  className="p-1 rounded transition-transform duration-250 hover:scale-115 active:scale-90 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                  className="p-1 rounded transition-transform duration-250 hover:scale-110 active:scale-95 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#5f4dbd]/50"
                 >
                   <Star
                     className={`h-7 w-7 transition-all ${
                       isFilled
-                        ? 'text-emerald-500 fill-emerald-500'
-                        : 'text-zinc-700'
+                        ? 'text-[#9868cc] fill-[#9868cc]'
+                        : 'text-[#1e1d1d]'
                     }`}
                   />
                 </button>
@@ -110,8 +110,8 @@ export function RatingForm({
         {/* Entertainment Value Slider */}
         <div className="space-y-3">
           <div className="flex justify-between items-center">
-            <Label className="text-xs font-semibold text-zinc-300">
-              Entertainment Value: <span className="text-emerald-400">{entertainmentScore}</span> / 10
+            <Label className="text-xs font-semibold text-[#b8b9bc]">
+              Entertainment Value: <span className="text-[#9868cc] font-bold">{entertainmentScore}</span> / 10
             </Label>
             <span className="text-[9px] text-zinc-550 uppercase tracking-wider">
               {entertainmentScore >= 8 ? 'Thriller' : entertainmentScore >= 5 ? 'Good Game' : 'Boring'}
@@ -130,8 +130,8 @@ export function RatingForm({
         {/* Referee Quality Slider */}
         <div className="space-y-3 border-t border-zinc-800/60 pt-4">
           <div className="flex justify-between items-center">
-            <Label className="text-xs font-semibold text-zinc-300">
-              Referee Quality: <span className="text-emerald-400">{refereeScore}</span> / 10
+            <Label className="text-xs font-semibold text-[#b8b9bc]">
+              Referee Quality: <span className="text-[#9868cc] font-bold">{refereeScore}</span> / 10
             </Label>
             <span className="text-[9px] text-zinc-550 uppercase tracking-wider">
               {refereeScore >= 8 ? 'Excellent' : refereeScore >= 5 ? 'Fair' : 'Poor Decisions'}
@@ -150,8 +150,8 @@ export function RatingForm({
         {/* Tactics Quality Slider */}
         <div className="space-y-3 border-t border-zinc-800/60 pt-4">
           <div className="flex justify-between items-center">
-            <Label className="text-xs font-semibold text-zinc-300">
-              Tactical & Coaching Level: <span className="text-emerald-400">{tacticsScore}</span> / 10
+            <Label className="text-xs font-semibold text-[#b8b9bc]">
+              Tactical & Coaching Level: <span className="text-[#9868cc] font-bold">{tacticsScore}</span> / 10
             </Label>
             <span className="text-[9px] text-zinc-550 uppercase tracking-wider">
               {tacticsScore >= 8 ? 'Masterclass' : tacticsScore >= 5 ? 'Standard' : 'Tactically Poor'}
@@ -170,8 +170,8 @@ export function RatingForm({
         {/* VAR Quality Slider */}
         <div className="space-y-3 border-t border-zinc-800/60 pt-4">
           <div className="flex justify-between items-center">
-            <Label className="text-xs font-semibold text-zinc-300">
-              VAR Accuracy & Speed: <span className="text-emerald-400">{varScore}</span> / 10
+            <Label className="text-xs font-semibold text-[#b8b9bc]">
+              VAR Accuracy & Speed: <span className="text-[#9868cc] font-bold">{varScore}</span> / 10
             </Label>
             <span className="text-[9px] text-zinc-550 uppercase tracking-wider">
               {varScore >= 8 ? 'Flawless' : varScore >= 5 ? 'Acceptable' : 'Frustrating'}
@@ -190,7 +190,7 @@ export function RatingForm({
         <Button
           type="submit"
           disabled={isPending || overallScore === 0}
-          className="w-full bg-emerald-700 hover:bg-emerald-600 text-zinc-100 font-bold transition-all duration-200 cursor-pointer"
+          className="w-full bg-[#fefcfb] text-[#161e29] hover:bg-[#fefcfb]/95 font-bold transition-all duration-200 cursor-pointer rounded-full"
         >
           {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
           Submit Rating

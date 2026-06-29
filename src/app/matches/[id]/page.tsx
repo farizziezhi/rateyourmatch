@@ -126,11 +126,11 @@ export default async function MatchDetailPage({ params }: PageProps) {
       <div className="relative overflow-hidden rounded-2xl glass-panel p-6 md:p-8 flex flex-col items-center justify-center space-y-6 shadow-2xl">
 
         {/* Stage and Venue */}
-        <div className="flex flex-col items-center space-y-1 text-xs text-zinc-500 z-10">
-          <span className="font-extrabold tracking-wider uppercase text-emerald-400">
+        <div className="flex flex-col items-center space-y-1 text-xs text-[#8a8d92] z-10">
+          <span className="font-extrabold tracking-wider uppercase text-[#9868cc]">
             {formatStageName(match.stage)}
           </span>
-          <div className="flex items-center space-x-3 text-zinc-400 mt-1">
+          <div className="flex items-center space-x-3 text-[#b8b9bc] mt-1">
             {match.venue && (
               <span className="flex items-center space-x-1">
                 <MapPin className="h-3 w-3" />
@@ -156,12 +156,12 @@ export default async function MatchDetailPage({ params }: PageProps) {
               // eslint-disable-next-line @next/next/no-img-element
               <img src={match.home_team.crest_url} alt={match.home_team.name} className="h-16 w-16 md:h-20 md:w-20 object-contain drop-shadow-[0_4px_10px_rgba(255,255,255,0.05)] transition-transform duration-300 group-hover:scale-105" />
             ) : (
-              <div className="h-16 w-16 md:h-20 md:w-20 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-xl font-bold text-zinc-400">
+              <div className="h-16 w-16 md:h-20 md:w-20 rounded-full bg-[#1e1d1d] border border-transparent flex items-center justify-center text-xl font-bold text-[#b8b9bc]">
                 {match.home_team?.tla || 'H'}
               </div>
             )}
-            <span className="text-sm md:text-base font-extrabold text-zinc-100 group-hover:text-emerald-400 transition-colors tracking-tight">{match.home_team?.name || 'TBD'}</span>
-            <span className="text-[10px] text-zinc-400 font-bold px-2 py-0.5 rounded-full bg-zinc-900/80 border border-zinc-850">
+            <span className="text-sm md:text-base font-extrabold text-[#d0d0d1] group-hover:text-[#fefcfb] transition-colors tracking-tight">{match.home_team?.name || 'TBD'}</span>
+            <span className="text-[10px] text-[#b8b9bc] font-bold px-2.5 py-0.5 rounded-full bg-[#1e1d1d] border border-transparent">
               Group {match.home_team?.group_letter || '-'}
             </span>
           </div>
@@ -169,20 +169,20 @@ export default async function MatchDetailPage({ params }: PageProps) {
           {/* Scores or vs */}
           <div className="flex flex-col items-center justify-center w-2/12 space-y-3">
             {isFinished ? (
-              <div className="flex items-center space-x-1.5 md:space-x-2.5 text-3xl md:text-5xl font-black font-mono text-zinc-100 tracking-wider">
-                <span className="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-1.5 shadow-inner">{match.home_score}</span>
-                <span className="text-zinc-600 font-sans text-2xl">:</span>
-                <span className="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-1.5 shadow-inner">{match.away_score}</span>
+              <div className="flex items-center space-x-1.5 md:space-x-2.5 text-3xl md:text-5xl font-black font-mono text-[#fefcfb] tracking-wider">
+                <span className="bg-[#1e1d1d] border border-transparent rounded-xl px-3 py-1.5 shadow-inner">{match.home_score}</span>
+                <span className="text-[#8a8d92] font-sans text-2xl">:</span>
+                <span className="bg-[#1e1d1d] border border-transparent rounded-xl px-3 py-1.5 shadow-inner">{match.away_score}</span>
               </div>
             ) : (
-              <span className="text-lg md:text-xl font-black text-zinc-500 uppercase tracking-widest bg-zinc-900/60 border border-zinc-850 px-3 py-1 rounded-lg">VS</span>
+              <span className="text-lg md:text-xl font-black text-[#8a8d92] uppercase tracking-widest bg-[#1e1d1d] border border-transparent px-3 py-1 rounded-lg">VS</span>
             )}
             <span className={`text-[9px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full border ${
               match.status === 'FINISHED'
-                ? 'bg-zinc-850/80 text-zinc-400 border-zinc-700/40'
+                ? 'bg-[#1e1d1d] text-[#b8b9bc] border-transparent'
                 : match.status === 'IN_PLAY' || match.status === 'LIVE'
-                ? 'bg-red-500/10 text-red-400 border-red-500/25 animate-pulse'
-                : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/25'
+                ? 'bg-[#5f4dbd]/20 text-[#fefcfb] border-[#5f4dbd]/30 animate-pulse'
+                : 'bg-transparent text-[#eae5dd] border-[#1e1d1d]'
             }`}>
               {match.status === 'FINISHED' ? 'Full Time' : match.status === 'IN_PLAY' || match.status === 'LIVE' ? 'Live' : 'Upcoming'}
             </span>
@@ -194,12 +194,12 @@ export default async function MatchDetailPage({ params }: PageProps) {
               // eslint-disable-next-line @next/next/no-img-element
               <img src={match.away_team.crest_url} alt={match.away_team.name} className="h-16 w-16 md:h-20 md:w-20 object-contain drop-shadow-[0_4px_10px_rgba(255,255,255,0.05)] transition-transform duration-300 group-hover:scale-105" />
             ) : (
-              <div className="h-16 w-16 md:h-20 md:w-20 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-xl font-bold text-zinc-400">
+              <div className="h-16 w-16 md:h-20 md:w-20 rounded-full bg-[#1e1d1d] border border-transparent flex items-center justify-center text-xl font-bold text-[#b8b9bc]">
                 {match.away_team?.tla || 'A'}
               </div>
             )}
-            <span className="text-sm md:text-base font-extrabold text-zinc-100 group-hover:text-emerald-400 transition-colors tracking-tight">{match.away_team?.name || 'TBD'}</span>
-            <span className="text-[10px] text-zinc-400 font-bold px-2 py-0.5 rounded-full bg-zinc-900/80 border border-zinc-850">
+            <span className="text-sm md:text-base font-extrabold text-[#d0d0d1] group-hover:text-[#fefcfb] transition-colors tracking-tight">{match.away_team?.name || 'TBD'}</span>
+            <span className="text-[10px] text-[#b8b9bc] font-bold px-2.5 py-0.5 rounded-full bg-[#1e1d1d] border border-transparent">
               Group {match.away_team?.group_letter || '-'}
             </span>
           </div>
@@ -209,27 +209,27 @@ export default async function MatchDetailPage({ params }: PageProps) {
         {match.rating_count > 0 && (
           <div className="flex flex-col items-center space-y-4 z-10 w-full pt-2">
             <div className="flex items-center space-x-2">
-              <span className="text-zinc-500 text-xs font-semibold uppercase tracking-wider">Community Rating</span>
-              <div className="flex items-center space-x-1.5 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-lg text-emerald-400 font-extrabold text-sm">
+              <span className="text-[#8a8d92] text-xs font-semibold uppercase tracking-wider">Community Rating</span>
+              <div className="flex items-center space-x-1.5 bg-[#5f4dbd]/10 border border-[#5f4dbd]/30 px-3 py-1 rounded-lg text-[#fefcfb] font-extrabold text-sm">
                 <Star className="h-4 w-4 fill-current mr-0.5" />
                 <span>{Number(match.rating_avg).toFixed(1)}</span>
               </div>
-              <span className="text-zinc-500 text-xs font-medium">({match.rating_count} ratings)</span>
+              <span className="text-[#8a8d92] text-xs font-medium">({match.rating_count} ratings)</span>
             </div>
             
             {/* Technical averages */}
-            <div className="grid grid-cols-3 gap-3 text-center text-[10px] border-t border-zinc-850 pt-4 w-full max-w-sm">
-              <div className="bg-zinc-900/30 border border-zinc-850 px-2 py-2 rounded-lg">
-                <span className="text-zinc-500 block font-bold uppercase tracking-wider mb-0.5">Referee</span>
-                <span className="text-zinc-200 font-extrabold text-xs">{Number(match.referee_avg || 0).toFixed(1)}</span>
+            <div className="grid grid-cols-3 gap-3 text-center text-[10px] border-t border-[#1e1d1d] pt-4 w-full max-w-sm">
+              <div className="bg-[#1e1d1d] border border-transparent px-2 py-2 rounded-lg">
+                <span className="text-[#8a8d92] block font-bold uppercase tracking-wider mb-0.5">Referee</span>
+                <span className="text-[#fefcfb] font-extrabold text-xs">{Number(match.referee_avg || 0).toFixed(1)}</span>
               </div>
-              <div className="bg-zinc-900/30 border border-zinc-850 px-2 py-2 rounded-lg">
-                <span className="text-zinc-500 block font-bold uppercase tracking-wider mb-0.5">Tactics</span>
-                <span className="text-zinc-200 font-extrabold text-xs">{Number(match.tactics_avg || 0).toFixed(1)}</span>
+              <div className="bg-[#1e1d1d] border border-transparent px-2 py-2 rounded-lg">
+                <span className="text-[#8a8d92] block font-bold uppercase tracking-wider mb-0.5">Tactics</span>
+                <span className="text-[#fefcfb] font-extrabold text-xs">{Number(match.tactics_avg || 0).toFixed(1)}</span>
               </div>
-              <div className="bg-zinc-900/30 border border-zinc-850 px-2 py-2 rounded-lg">
-                <span className="text-zinc-500 block font-bold uppercase tracking-wider mb-0.5">VAR</span>
-                <span className="text-zinc-200 font-extrabold text-xs">{Number(match.var_avg || 0).toFixed(1)}</span>
+              <div className="bg-[#1e1d1d] border border-transparent px-2 py-2 rounded-lg">
+                <span className="text-[#8a8d92] block font-bold uppercase tracking-wider mb-0.5">VAR</span>
+                <span className="text-[#fefcfb] font-extrabold text-xs">{Number(match.var_avg || 0).toFixed(1)}</span>
               </div>
             </div>
           </div>
