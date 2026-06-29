@@ -46,11 +46,11 @@ export function MatchCard({ match }: MatchCardProps) {
 
   return (
     <Link href={`/matches/${match.id}`} className="block group">
-      <Card className="overflow-hidden border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/80 transition-all duration-300 group-hover:border-zinc-700 shadow-lg">
+      <Card className="glass-panel glass-panel-hover overflow-hidden shadow-xl">
         <CardContent className="p-5 flex flex-col justify-between h-full space-y-4">
           {/* Header Info */}
-          <div className="flex items-center justify-between text-xs text-zinc-500 border-b border-zinc-800/60 pb-2">
-            <span>{formatStage(match.stage)}</span>
+          <div className="flex items-center justify-between text-xs text-zinc-500 border-b border-zinc-800/50 pb-2">
+            <span className="font-extrabold text-[10px] tracking-wider uppercase text-emerald-400/90">{formatStage(match.stage)}</span>
             <span className="font-medium text-zinc-400">{formattedDate} UTC</span>
           </div>
 
@@ -71,11 +71,11 @@ export function MatchCard({ match }: MatchCardProps) {
                     {match.home_team?.tla || 'H'}
                   </div>
                 )}
-                <span className="text-sm font-semibold text-zinc-200 group-hover:text-zinc-100 transition-colors">
+                <span className="text-sm font-semibold text-zinc-200 group-hover:text-emerald-400 transition-colors">
                   {match.home_team?.name || 'TBD'}
                 </span>
               </div>
-              <span className="text-base font-bold text-zinc-100">
+              <span className="text-base font-extrabold text-zinc-100">
                 {match.home_score ?? '-'}
               </span>
             </div>
@@ -95,32 +95,36 @@ export function MatchCard({ match }: MatchCardProps) {
                     {match.away_team?.tla || 'A'}
                   </div>
                 )}
-                <span className="text-sm font-semibold text-zinc-200 group-hover:text-zinc-100 transition-colors">
+                <span className="text-sm font-semibold text-zinc-200 group-hover:text-emerald-400 transition-colors">
                   {match.away_team?.name || 'TBD'}
                 </span>
               </div>
-              <span className="text-base font-bold text-zinc-100">
+              <span className="text-base font-extrabold text-zinc-100">
                 {match.away_score ?? '-'}
               </span>
             </div>
           </div>
 
           {/* Footer Community Rating / Status */}
-          <div className="flex items-center justify-between pt-2 border-t border-zinc-800/60 text-xs">
+          <div className="flex items-center justify-between pt-2 border-t border-zinc-800/50 text-xs">
             <div className="flex items-center space-x-1">
-              <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold border ${
-                isFinished ? 'bg-zinc-800 text-zinc-400 border-zinc-700/50' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+              <span className={`px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider border ${
+                match.status === 'FINISHED'
+                  ? 'bg-zinc-850/80 text-zinc-400 border-zinc-700/40'
+                  : match.status === 'IN_PLAY' || match.status === 'LIVE'
+                  ? 'bg-red-500/10 text-red-400 border-red-500/25 animate-pulse'
+                  : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/25'
               }`}>
-                {match.status}
+                {match.status === 'FINISHED' ? 'Full Time' : match.status === 'IN_PLAY' || match.status === 'LIVE' ? 'Live' : 'Upcoming'}
               </span>
             </div>
             
             {/* Community Rating */}
-            <div className={`flex items-center space-x-1 px-2.5 py-1 rounded-md border font-semibold ${getRatingColor(Number(match.rating_avg))}`}>
+            <div className={`flex items-center space-x-1 px-2.5 py-1 rounded border font-bold text-[11px] ${getRatingColor(Number(match.rating_avg))}`}>
               <Star className="h-3.5 w-3.5 fill-current" />
               <span>{match.rating_avg > 0 ? Number(match.rating_avg).toFixed(1) : 'No Ratings'}</span>
               {match.rating_count > 0 && (
-                <span className="text-[10px] text-zinc-500 font-normal ml-0.5">({match.rating_count})</span>
+                <span className="text-[9px] opacity-70 font-normal ml-0.5">({match.rating_count})</span>
               )}
             </div>
           </div>

@@ -46,21 +46,21 @@ export function MatchFilters() {
   }
 
   return (
-    <div className="flex flex-col space-y-4 bg-zinc-950/40 border border-zinc-800 p-4 rounded-xl backdrop-blur-md">
+    <div className="flex flex-col space-y-4 glass-panel p-4 rounded-xl shadow-lg">
       {/* Stage Filters */}
       <div className="flex flex-col space-y-2">
-        <span className="text-xs font-semibold text-zinc-400 tracking-wider uppercase">Stage</span>
-        <div className="flex flex-wrap gap-2">
+        <span className="text-[10px] font-bold text-zinc-500 tracking-wider uppercase">Stage</span>
+        <div className="flex flex-wrap gap-1.5">
           {STAGES.map((s) => (
             <Button
               key={s.value}
               variant={currentStage === s.value ? 'default' : 'outline'}
               size="sm"
               onClick={() => updateFilters('stage', s.value)}
-              className={`text-xs font-medium cursor-pointer transition-all duration-200 ${
+              className={`text-xs font-semibold cursor-pointer transition-all duration-350 px-3 py-1.5 h-8 ${
                 currentStage === s.value 
-                  ? 'bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-semibold' 
-                  : 'border-zinc-800 bg-zinc-900/30 text-zinc-300 hover:bg-zinc-900 hover:text-zinc-100'
+                  ? 'bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-zinc-950 shadow-md shadow-emerald-500/10' 
+                  : 'border-zinc-800 bg-zinc-950/20 text-zinc-400 hover:bg-zinc-900/60 hover:text-zinc-200'
               }`}
             >
               {s.label}
@@ -71,8 +71,8 @@ export function MatchFilters() {
 
       {/* Group Filters */}
       {(currentStage === '' || currentStage === 'GROUP_STAGE') && (
-        <div className="flex flex-col space-y-2 border-t border-zinc-800/80 pt-3">
-          <span className="text-xs font-semibold text-zinc-400 tracking-wider uppercase">Group</span>
+        <div className="flex flex-col space-y-2 border-t border-zinc-800/50 pt-3">
+          <span className="text-[10px] font-bold text-zinc-500 tracking-wider uppercase">Group</span>
           <div className="flex flex-wrap gap-1.5">
             {GROUPS.map((g) => (
               <Button
@@ -82,8 +82,8 @@ export function MatchFilters() {
                 onClick={() => updateFilters('group', g.value)}
                 className={`text-xs px-2.5 py-1 h-8 cursor-pointer transition-all duration-200 ${
                   currentGroup === g.value
-                    ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-400 font-semibold hover:bg-emerald-500/30'
-                    : 'border-zinc-800 bg-zinc-900/10 text-zinc-400 hover:bg-zinc-900/50 hover:text-zinc-300'
+                    ? 'bg-emerald-500/15 border-emerald-500/30 text-emerald-450 font-bold hover:bg-emerald-500/25'
+                    : 'border-zinc-800/80 bg-zinc-950/10 text-zinc-400 hover:bg-zinc-900/40 hover:text-zinc-200'
                 }`}
               >
                 {g.label}

@@ -51,8 +51,8 @@ export function RatingForm({
   }
 
   return (
-    <div className="bg-zinc-900/30 border border-zinc-800 p-6 rounded-xl backdrop-blur-md">
-      <h3 className="text-lg font-bold text-zinc-100 mb-4">Rate this Match</h3>
+    <div className="glass-panel p-6 rounded-2xl shadow-xl">
+      <h3 className="text-lg font-extrabold text-zinc-100 mb-4">Rate this Match</h3>
 
       <form action={action} className="space-y-6">
         {/* Hidden inputs to send state with Form */}
@@ -77,10 +77,10 @@ export function RatingForm({
 
         {/* 1-10 Overall Match Quality Star Rating */}
         <div className="space-y-2">
-          <Label className="text-sm font-semibold text-zinc-300">
-            Match Quality: <span className="text-emerald-400 text-base">{overallScore || 'Select'}</span> / 10
+          <Label className="text-sm font-semibold text-zinc-350">
+            Match Quality: <span className="text-emerald-400 font-extrabold text-base">{overallScore || 'Select'}</span> / 10
           </Label>
-          <div className="flex items-center space-x-1.5 overflow-x-auto py-1">
+          <div className="flex items-center space-x-1.5 overflow-x-auto py-1.5">
             {Array.from({ length: 10 }).map((_, idx) => {
               const score = idx + 1
               const isFilled = hoverScore !== null ? score <= hoverScore : score <= overallScore
@@ -92,13 +92,13 @@ export function RatingForm({
                   onClick={() => setOverallScore(score)}
                   onMouseEnter={() => setHoverScore(score)}
                   onMouseLeave={() => setHoverScore(null)}
-                  className="p-1 rounded transition-colors hover:bg-zinc-800/50 cursor-pointer focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  className="p-1 rounded transition-transform duration-250 hover:scale-115 active:scale-90 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                 >
                   <Star
                     className={`h-7 w-7 transition-all ${
                       isFilled
-                        ? 'text-emerald-400 fill-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.3)]'
-                        : 'text-zinc-600'
+                        ? 'text-emerald-400 fill-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.35)]'
+                        : 'text-zinc-700'
                     }`}
                   />
                 </button>

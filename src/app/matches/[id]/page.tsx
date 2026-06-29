@@ -123,13 +123,13 @@ export default async function MatchDetailPage({ params }: PageProps) {
       </div>
 
       {/* Match Scoreboard Hero */}
-      <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/60 p-6 md:p-8 flex flex-col items-center justify-center space-y-6">
-        {/* Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/10 via-transparent to-transparent pointer-events-none" />
+      <div className="relative overflow-hidden rounded-2xl glass-panel p-6 md:p-8 flex flex-col items-center justify-center space-y-6 shadow-2xl">
+        {/* Glowing backdrop blur */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-emerald-500/5 blur-[100px] pointer-events-none" />
 
         {/* Stage and Venue */}
         <div className="flex flex-col items-center space-y-1 text-xs text-zinc-500 z-10">
-          <span className="font-bold tracking-wider uppercase text-emerald-400">
+          <span className="font-extrabold tracking-wider uppercase text-emerald-400">
             {formatStageName(match.stage)}
           </span>
           <div className="flex items-center space-x-3 text-zinc-400 mt-1">
@@ -151,51 +151,57 @@ export default async function MatchDetailPage({ params }: PageProps) {
         </div>
 
         {/* Scoreboard */}
-        <div className="flex items-center justify-between w-full max-w-xl z-10 py-4">
+        <div className="flex items-center justify-between w-full max-w-xl z-10 py-2">
           {/* Home Team */}
-          <div className="flex flex-col items-center space-y-2 w-5/12 text-center">
+          <div className="flex flex-col items-center space-y-3 w-5/12 text-center group">
             {match.home_team?.crest_url ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={match.home_team.crest_url} alt={match.home_team.name} className="h-16 w-16 md:h-20 md:w-20 object-contain drop-shadow-md" />
+              <img src={match.home_team.crest_url} alt={match.home_team.name} className="h-16 w-16 md:h-20 md:w-20 object-contain drop-shadow-[0_4px_10px_rgba(255,255,255,0.05)] transition-transform duration-300 group-hover:scale-105" />
             ) : (
               <div className="h-16 w-16 md:h-20 md:w-20 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-xl font-bold text-zinc-400">
                 {match.home_team?.tla || 'H'}
               </div>
             )}
-            <span className="text-sm md:text-base font-bold text-zinc-100">{match.home_team?.name || 'TBD'}</span>
-            <span className="text-[10px] text-zinc-500 font-semibold px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800/80">
+            <span className="text-sm md:text-base font-extrabold text-zinc-100 group-hover:text-emerald-400 transition-colors tracking-tight">{match.home_team?.name || 'TBD'}</span>
+            <span className="text-[10px] text-zinc-400 font-bold px-2 py-0.5 rounded-full bg-zinc-900/80 border border-zinc-850">
               Group {match.home_team?.group_letter || '-'}
             </span>
           </div>
 
           {/* Scores or vs */}
-          <div className="flex flex-col items-center justify-center w-2/12 space-y-1">
+          <div className="flex flex-col items-center justify-center w-2/12 space-y-3">
             {isFinished ? (
-              <span className="text-3xl md:text-5xl font-extrabold tracking-tight text-zinc-50">
-                {match.home_score} : {match.away_score}
-              </span>
+              <div className="flex items-center space-x-1.5 md:space-x-2.5 text-3xl md:text-5xl font-black font-mono text-zinc-100 tracking-wider">
+                <span className="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-1.5 shadow-inner">{match.home_score}</span>
+                <span className="text-zinc-600 font-sans text-2xl">:</span>
+                <span className="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-1.5 shadow-inner">{match.away_score}</span>
+              </div>
             ) : (
-              <span className="text-lg md:text-xl font-bold text-zinc-500 uppercase tracking-widest">VS</span>
+              <span className="text-lg md:text-xl font-black text-zinc-500 uppercase tracking-widest bg-zinc-900/60 border border-zinc-850 px-3 py-1 rounded-lg">VS</span>
             )}
-            <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${
-              isFinished ? 'bg-zinc-900 text-zinc-400 border-zinc-800' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+            <span className={`text-[9px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full border ${
+              match.status === 'FINISHED'
+                ? 'bg-zinc-850/80 text-zinc-400 border-zinc-700/40'
+                : match.status === 'IN_PLAY' || match.status === 'LIVE'
+                ? 'bg-red-500/10 text-red-400 border-red-500/25 animate-pulse'
+                : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/25'
             }`}>
-              {match.status}
+              {match.status === 'FINISHED' ? 'Full Time' : match.status === 'IN_PLAY' || match.status === 'LIVE' ? 'Live' : 'Upcoming'}
             </span>
           </div>
 
           {/* Away Team */}
-          <div className="flex flex-col items-center space-y-2 w-5/12 text-center">
+          <div className="flex flex-col items-center space-y-3 w-5/12 text-center group">
             {match.away_team?.crest_url ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={match.away_team.crest_url} alt={match.away_team.name} className="h-16 w-16 md:h-20 md:w-20 object-contain drop-shadow-md" />
+              <img src={match.away_team.crest_url} alt={match.away_team.name} className="h-16 w-16 md:h-20 md:w-20 object-contain drop-shadow-[0_4px_10px_rgba(255,255,255,0.05)] transition-transform duration-300 group-hover:scale-105" />
             ) : (
               <div className="h-16 w-16 md:h-20 md:w-20 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-xl font-bold text-zinc-400">
                 {match.away_team?.tla || 'A'}
               </div>
             )}
-            <span className="text-sm md:text-base font-bold text-zinc-100">{match.away_team?.name || 'TBD'}</span>
-            <span className="text-[10px] text-zinc-500 font-semibold px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800/80">
+            <span className="text-sm md:text-base font-extrabold text-zinc-100 group-hover:text-emerald-400 transition-colors tracking-tight">{match.away_team?.name || 'TBD'}</span>
+            <span className="text-[10px] text-zinc-400 font-bold px-2 py-0.5 rounded-full bg-zinc-900/80 border border-zinc-850">
               Group {match.away_team?.group_letter || '-'}
             </span>
           </div>
@@ -203,31 +209,29 @@ export default async function MatchDetailPage({ params }: PageProps) {
 
         {/* Global Rating Stats */}
         {match.rating_count > 0 && (
-          <div className="flex flex-col items-center space-y-3 z-10 w-full">
+          <div className="flex flex-col items-center space-y-4 z-10 w-full pt-2">
             <div className="flex items-center space-x-2">
-              <span className="text-zinc-500 text-xs">Community Rating:</span>
-              <div className="flex items-center space-x-1.5 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-md text-emerald-400 font-bold text-sm">
-                <Star className="h-4 w-4 fill-current" />
+              <span className="text-zinc-500 text-xs font-semibold uppercase tracking-wider">Community Rating</span>
+              <div className="flex items-center space-x-1.5 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-lg text-emerald-400 font-extrabold text-sm">
+                <Star className="h-4 w-4 fill-current mr-0.5" />
                 <span>{Number(match.rating_avg).toFixed(1)}</span>
               </div>
-              <span className="text-zinc-500 text-xs">({match.rating_count} votes)</span>
+              <span className="text-zinc-500 text-xs font-medium">({match.rating_count} ratings)</span>
             </div>
             
             {/* Technical averages */}
-            <div className="flex flex-wrap justify-center gap-3 text-xs border-t border-zinc-800/60 pt-2.5 w-full max-w-sm">
-              <div className="flex items-center space-x-1">
-                <span className="text-zinc-500">Referee:</span>
-                <span className="text-zinc-300 font-bold">{Number(match.referee_avg || 0).toFixed(1)}</span>
+            <div className="grid grid-cols-3 gap-3 text-center text-[10px] border-t border-zinc-850 pt-4 w-full max-w-sm">
+              <div className="bg-zinc-900/30 border border-zinc-850 px-2 py-2 rounded-lg">
+                <span className="text-zinc-500 block font-bold uppercase tracking-wider mb-0.5">Referee</span>
+                <span className="text-zinc-200 font-extrabold text-xs">{Number(match.referee_avg || 0).toFixed(1)}</span>
               </div>
-              <span className="text-zinc-700">|</span>
-              <div className="flex items-center space-x-1">
-                <span className="text-zinc-500">Tactics:</span>
-                <span className="text-zinc-300 font-bold">{Number(match.tactics_avg || 0).toFixed(1)}</span>
+              <div className="bg-zinc-900/30 border border-zinc-850 px-2 py-2 rounded-lg">
+                <span className="text-zinc-500 block font-bold uppercase tracking-wider mb-0.5">Tactics</span>
+                <span className="text-zinc-200 font-extrabold text-xs">{Number(match.tactics_avg || 0).toFixed(1)}</span>
               </div>
-              <span className="text-zinc-700">|</span>
-              <div className="flex items-center space-x-1">
-                <span className="text-zinc-500">VAR:</span>
-                <span className="text-zinc-300 font-bold">{Number(match.var_avg || 0).toFixed(1)}</span>
+              <div className="bg-zinc-900/30 border border-zinc-850 px-2 py-2 rounded-lg">
+                <span className="text-zinc-500 block font-bold uppercase tracking-wider mb-0.5">VAR</span>
+                <span className="text-zinc-200 font-extrabold text-xs">{Number(match.var_avg || 0).toFixed(1)}</span>
               </div>
             </div>
           </div>

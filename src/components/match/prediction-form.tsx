@@ -47,9 +47,9 @@ export function PredictionForm({
   const hasPredicted = initialHomeScore !== undefined && initialAwayScore !== undefined
 
   return (
-    <div className="bg-zinc-900/30 border border-zinc-800 p-6 rounded-xl backdrop-blur-md">
+    <div className="glass-panel p-6 rounded-2xl shadow-xl">
       <div className="space-y-1 mb-4">
-        <h3 className="text-lg font-bold text-zinc-100">
+        <h3 className="text-lg font-extrabold text-zinc-100">
           {hasPredicted ? 'Update Your Prediction' : 'Predict the Score'}
         </h3>
         <p className="text-xs text-zinc-500">
