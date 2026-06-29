@@ -1,0 +1,17 @@
+name: Sync World Cup Matches
+
+on:
+  schedule:
+    # Runs every 30 minutes
+    - cron: '*/30 * * * *'
+  workflow_dispatch: # Allows you to manually trigger this from GitHub Actions tab
+
+jobs:
+  sync-matches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send POST request to Sync API
+        run: |
+          curl -X POST "https://rateyourmatchwc.vercel.app/api/sync/matches" \
+            -H "Authorization: Bearer ${{ secrets.SYNC_TOKEN }}" \
+            -H "Content-Type: application/json"
