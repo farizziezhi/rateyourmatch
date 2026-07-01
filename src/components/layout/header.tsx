@@ -32,6 +32,9 @@ export async function Header() {
           <Link href="/feed" className="text-sm font-medium text-[#b8b9bc] hover:text-[#9868cc] transition-colors">
             Feed
           </Link>
+          <Link href="/leaderboard" className="text-sm font-medium text-[#b8b9bc] hover:text-[#9868cc] transition-colors">
+            Leaderboard
+          </Link>
         </nav>
 
         <div className="flex items-center space-x-4">

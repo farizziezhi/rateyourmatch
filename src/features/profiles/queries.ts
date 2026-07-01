@@ -57,3 +57,27 @@ export const getUserRecentRatings = cache(async (userId: string, limit = 10) => 
     return []
   }
 })
+
+export const getLeaderboard = cache(async (limit = 50) => {
+  const supabase = await createClient()
+
+  try {
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('id, username, display_name, avatar_url, total_ratings, reputation_score')
+      .order('reputation_score', { ascending: false })
+      .order('total_ratings', { ascending: false })
+      .limit(limit)
+
+    if (error) {
+      console.error('Error fetching leaderboard:', error)
+      return []
+    }
+
+    return data || []
+  } catch (error) {
+    console.error('getLeaderboard caught error:', error)
+    return []
+  }
+})
+
